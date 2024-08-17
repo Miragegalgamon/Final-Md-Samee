@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Russo+One&family=Syncopate:wght@400;700&display=swap');
+
+:root {
+    --accentColor: deepPink;
+}
+
+body {
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.4;
+    background-color: var(--bgColor);
+    margin: 0;
+
+    color: var(--txtColor);
+}
+
+
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+.bodyWrapper {
+    min-height: calc(100vh - 2rem);
+    box-sizing: border-box;
+}
+
+
+header {
+    background-color: var(--txtColor);
+    color: var(--bgColor);
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-bottom: 4px solid var(--accentColor);
+}
+
+header h1 {
+    font-family: "Syncopate", sans-serif;
+    margin: 0;
+    margin: 1rem;
+
+    font-size: clamp(1.1rem, 2vw, 2rem);
+}
+
+header h1 span {
+    color: var(--accentColor);
+    font-size: clamp(1.4rem, 2.5vw, 3.5rem);
+    display: block;
+}
+
+.mode {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.mode label {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.5s;
+}
+
+.mode label:hover {
+    cursor: pointer;
+    color: hsl(from var(--accentColor) h s calc(l - 15));
+}
+
+.mode i {
+    font-size: 1.5rem;
+}
+
+.mode label:has(input[name="themeMode"]:checked) {
+    color: var(--accentColor);
+}
+
+
+main {
+    max-width: 1300px;
+    margin: 1rem auto;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+}
+
+#notificationBox{
+    background-color: var(--txtColor);
+    color: var(--bgColor);
+    padding: 1rem;
+
+    position: fixed;
+    bottom: 15%;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    border-right: 8px solid var(--accentColor);
+    border-top: 2px solid var(--accentColor);
+    border-bottom: 2px solid var(--accentColor);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.8rem, 2vw, 4rem) ;
+    /* font-size: 3rem ; */
+
+    transform: translateX(-100%);
+    transition: 0.5s all;
+}
+
+#notificationBox.show{
+    transform: translateX(0);
+}
+
+.wrapOne {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.wrapOne .stepWrapper{
+    display: grid;
+    gap: 1rem;
+}
+.wrapOne .stepWrapper .row{
+    display: flex;
+    gap: 1rem;
+    flex-flow: row wrap;
+}
+
+.wrapOne .stepWrapper .col{
+    flex-grow: 1;
+}
+.wrapOne .stepWrapper  input{
+    width: 100%;
+    font-size: 1.1rem;
+}
+.wrapOne .stepWrapper  select{
+    width: 100%;
+    font-size: 1.1rem;
+}
+.wrapOne .stepWrapper  label{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+
+    
+    border: 2px solid var(--txtColor);
+    transition: all 0.5s;
+}
+.wrapOne .stepWrapper  label input{
+    width: fit-content;
+}
+
+.wrapOne .stepWrapper  label:has(input:checked){
+    background-color: var(--accentColor);
+    color: aliceblue;
+    border-color: transparent;
+    scale: 1.1;
+} 
+
+.wrapOne .stepWrapper  label:hover{
+    cursor: pointer;
+}
+
+
+.classButtons{
+    margin: 2rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;align-items: center;
+}
+
+main section {
+    border: 2px solid var(--txtColor);
+    padding: 1rem;
+    background-color: var(--bgColor);
+}
+
+main section h2 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(1.5rem, 1.5vw, 1.8rem);
+}
+
+.pd .row {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.pd .col input[type="text"] {
+    width: 100%;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+}
+
+.pd .col:has(input[type="text"]) {
+    flex-grow: 1;
+}
+
+#age{
+    font-size: 1.2rem;
+}
+
+.row:has(.btnAddPsngr){
+    margin-top: 3rem;
+    display: flex;
+    justify-content: end;
+}
+
+.btnAddPsngr input{
+    font-size: 1.2rem;
+    /* background-color: var(--accentColor);
+    color: white;
+    border-color: var(--txtColor); */
+    padding: 0.3rem 0.5rem;
+}
+
+#passangerInfo{
+    display: grid;
+    gap: 1rem;
+    font-size: 1.4rem;
+}
+
+#passangerInfo .pinfoCard{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.nameWrapper{
+    font-size: 1.4rem;
+}
+
+.pinfoCard {
+    background-color: var(--txtColor);
+    color: var(--accentColor);
+    padding: 0.5rem ;
+}
+
+.pinfoCard button{
+    background: none;
+    border: none;
+    background-color: aliceblue;
+    color: red;
+    padding: 0.3rem;
+}
+.pinfoCard button i{
+    font-size: 1.2rem;
+}
+
+.nameWrapper{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.aoOption{
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    /* border: 1px solid var(--txtColor); */
+    display: flex;
+    gap: 0.1rem;
+
+    flex-grow: 1;
+}
+
+.optionsWrapper{
+    display: flex;
+    gap: 1rem;
+    flex-flow: row wrap;
+}
+
+input[type="checkbox"]{
+    accent-color: var(--accentColor);
+}
+
+#btnPriceQuote{
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+#summary section{
+    font-size: 1.3rem;
+    display: grid;
+    gap: 1rem;
+
+    position: sticky;
+    top: 0;
+}
+
+#summary section label{
+    font-weight: bold;
+}
+
+#summary section .duo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.duoExtended{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0.5rem;
+}
+
+.couponWrapper{
+    margin: 2rem 0;
+    text-align: center;
+    border: 1px solid var(--txtColor);
+    padding:1rem;
+}
+
+.couponWrapper input{
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+
+#couponMessage{
+    font-size: 1rem;
+}
+
+.instructions{
+    font-size: 1.2rem;
+}
+
+.instructions ol
+{
+    display: grid;
+    gap: 1rem;
+}
+
+.instructions ol>li{
+    font-weight: bold;
+}
+.instructions ul>li{
+    font-weight: normal;
+    list-style: square;
+}
+
+.task h3{
+    color: var(--accentColor);
+    font-size: 1.5rem;
+}
+
+span.normal{
+    font-weight: normal;
+}
+
+@media only screen and (min-width: 750px) {
+
+    .headWrapper {
+        text-align: left;
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
+
+        max-width: 1300px;
+        margin: auto;
+        padding: 1rem;
+    }
+
+    main {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .wrapOne .stepWrapper,
+    .wrapOne .stepWrapper  input,
+    .wrapOne .stepWrapper  select{
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {}
+
+
+/* JS Related CLASSES */
+
+
+.mainBody.light{
+    --bgColor: aliceblue;
+    --txtColor: rgb(39, 39, 39);
+}
+
+.mainBody.dark{
+    --bgColor: rgb(39, 39, 39);;
+    --txtColor: aliceblue;
+}

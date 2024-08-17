@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Exam</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="mainBody light">
+    <div class="bodyWrapper">
+      <header>
+        <div class="headWrapper">
+          <h1><span>SkyHigh: </span>Wings with Great Savings</h1>
+          <div class="mode">
+            <label>
+              <span><i class="fa-solid fa-sun"></i></span>
+              <span>Light</span>
+              <input
+                id="lightMode"
+                class="visually-hidden"
+                type="radio"
+                name="themeMode"
+                value="light"
+              />
+            </label>
+            <label>
+              <span><i class="fa-solid fa-moon"></i></span>
+              <span>Dark</span>
+              <input
+                id="darkMode"
+                class="visually-hidden"
+                type="radio"
+                name="themeMode"
+                value="dark"
+              />
+            </label>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div id="notificationBox"></div>
+        <div class="wrap wrapOne">
+          <section class="step step1">
+            <h2>Select flight options</h2>
+
+            <div class="stepWrapper">
+              <div class="row">
+                <input type="date" name="departDate" id="departDate" />
+              </div>
+              <div class="row">
+                <div class="col">
+                  <select name="depart" id="depart">
+                    <option value="" selected disabled>Where From?</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Winnipeg">Winnipeg</option>
+                    <option value="Montreal">Montreal</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <select name="arrive" id="arrive">
+                    <option value="" selected disabled>Where To?</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Winnipeg">Winnipeg</option>
+                    <option value="Montreal">Montreal</option>
+                  </select>
+                </div>
+              </div>
+              <div class="classButtons row">
+                <label>
+                  <input
+                    type="radio"
+                    class="visually-hidden"
+                    name="travelClass"
+                    value="First"
+                  />
+                  <span>First Class</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    class="visually-hidden"
+                    name="travelClass"
+                    value="Business"
+                  />
+                  <span>Business Class</span>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    class="visually-hidden"
+                    name="travelClass"
+                    value="Economy"
+                  />
+                  <span>Economy Class</span>
+                </label>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Add passenger details</h2>
+            <div class="pd">
+              <div class="row">
+                <div class="col">
+                  <input id="firstName" type="text" placeholder="First Name*" />
+                </div>
+                <div class="col">
+                  <input id="lastName" type="text" placeholder="Last Name*" />
+                </div>
+                <div class="col">
+                  <label for="age">Age:</label>
+                  <input type="number" name="age" id="age" min="1" max="150" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="btnAddPsngr col">
+                  <input id="addPsngr" type="button" value="Add Passenger" />
+                </div>
+              </div>
+            </div>
+
+            <h3>Passenger(s) List:</h3>
+            <div id="passangerInfo">
+              <!-- <div class="pinfoCard">
+                            <div class="nameWrapper">
+                                <div class="infoFirstName"></div>
+                                <div class="infoLastName"></div>
+                            </div>
+                            <div class="infoAgeType"></div>
+                            <button class="delete" onclick="removePassenger(1)">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div> -->
+            </div>
+          </section>
+          <!-- <section>
+                    <h2>Choose addons ($25 each)</h2>
+
+                    <div class="optionsWrapper">
+                        <div class="aoOption">
+                            <input type="checkbox" name="addon" id="pickup" value="Pick up from Airport">
+                            <label for="pickup">Pick up from Airport</label>
+                        </div>
+                        
+                        <div class="aoOption">
+                            <input type="checkbox" name="addon" id="drop" value="Drop at Airport">
+                            <label for="drop">Drop at Airport</label>
+                        </div>
+                        
+                        <div class="aoOption">
+                            <input type="checkbox" name="addon" id="lounge" value="Deluxe Lounge">
+                            <label for="lounge">Deluxe Lounge</label>
+                        </div>
+                        
+                        <div class="aoOption">
+                            <input type="checkbox" name="addon" id="expCheckin" value="Expedited Checkin">
+                            <label for="expCheckin">Expedited Checkin</label>
+                        </div>
+                    </div>
+                </section> -->
+
+          <input type="button" id="btnPriceQuote" value="Get Price Quotation" />
+        </div>
+        <div id="summary" class="wrap wrapTwo">
+          <section>
+            <h2>Summary</h2>
+
+            <div class="duo">
+              <label for="">Departure Date:</label>
+              <span id="quotedDate"></span>
+            </div>
+            <div class="duo">
+              <label for="">From:</label>
+              <span id="quotedDepart"></span>
+            </div>
+            <div class="duo">
+              <label for="">To:</label>
+              <span id="quotedArrival"></span>
+            </div>
+            <div class="duo">
+              <label for="">Travel Class: </label>
+              <span id="quotedClass"></span>
+            </div>
+            <div class="duo">
+              <label for="">Class Ticket Price: </label>
+              <span id="quotedClassPrice"></span>
+            </div>
+            <div class="duoExtended">
+              <label for="">Passenger(s) Count: </label>
+              <span id="quotedPassengers"></span>
+            </div>
+            <div class="duoExtended">
+              <label for="">Quoted Price: </label>
+              <span id="quotedPrice"></span>
+            </div>
+            <div class="couponWrapper">
+              <div>
+                <input type="text" id="coupon" placeholder="Coupon Code" />
+                <input id="applyCoupon" type="button" value="Apply" />
+              </div>
+              <span id="couponMessage"></span>
+            </div>
+            <!-- <div class="duoExtended">
+                        <label for="">AddOns Total: </label>
+                        <span id="quotedAddOns"></span>
+                    </div> -->
+            <div class="duoExtended">
+              <label for="">Total Price: </label>
+              <span id="quotedTotalPrice"></span>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
