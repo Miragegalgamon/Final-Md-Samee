@@ -117,3 +117,32 @@ document.getElementById("applyCoupon").addEventListener("click", () => {
     showNotificationBox("Invalid Coupon.")
   }
 })
+document.addEventListener("DOMContentLoaded", function () {
+  const lightMode = document.getElementById("lightMode");
+  const darkMode = document.getElementById("darkMode");
+
+  // Load the saved theme from localStorage
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(savedTheme);
+    if (savedTheme === "dark") {
+      darkMode.checked = true;
+    } else {
+      lightMode.checked = true;
+    }
+  }
+
+  // Add event listeners for theme change
+  lightMode.addEventListener("change", () => {
+    document.body.classList.remove("dark");
+    document.body.classList.add("light");
+    localStorage.setItem("theme", "light");
+  });
+
+  darkMode.addEventListener("change", () => {
+    document.body.classList.remove("light");
+    document.body.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  });
+});

@@ -3,6 +3,30 @@
 :root {
     --accentColor: deepPink;
 }
+/* Dark and Light Mode Variables */
+:root {
+    --bgColor-light: aliceblue;
+    --txtColor-light: rgb(39, 39, 39);
+    --bgColor-dark: rgb(39, 39, 39);
+    --txtColor-dark: aliceblue;
+  }
+  
+  body.light {
+    --bgColor: var(--bgColor-light);
+    --txtColor: var(--txtColor-light);
+  }
+  
+  body.dark {
+    --bgColor: var(--bgColor-dark);
+    --txtColor: var(--txtColor-dark);
+  }
+  
+  /* General Styles */
+  body {
+    background-color: var(--bgColor);
+    color: var(--txtColor);
+  }
+  
 
 body {
 
